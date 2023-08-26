@@ -1,4 +1,5 @@
 # Supergoon Dynamic DNS updater
+- [![Push to Docker hub](https://github.com/supergoongaming/sg_ddns/actions/workflows/image_build.yml/badge.svg)](https://github.com/supergoongaming/sg_ddns/actions/workflows/image_build.yml)
 #### Updates DNS records hourly incase of home DNS changes
 - This should be run in a cronjob in k8s or something
 ## Inputs
