@@ -33,9 +33,9 @@ func getPublicIP() string {
 
 func getAllChanges(zones string, ip string) ([]*route53.Change, error) {
 	var changes []*route53.Change
-	var recordName string
 	for _, zone := range strings.Split(zones, " ") {
-		recordName = fmt.Sprintf("%s.supergoon.com", zone)
+		recordName := fmt.Sprintf("%s.supergoon.com", zone)
+		fmt.Printf("Going to update record %s", recordName)
 		newARecord := &route53.ResourceRecordSet{
 			Name:            &recordName,
 			Type:            aws.String("A"),
