@@ -35,13 +35,7 @@ func getAllChanges(zones string, ip string) ([]*route53.Change, error) {
 	var changes []*route53.Change
 	var recordName string
 	for _, zone := range strings.Split(zones, " ") {
-		if zone == "base" {
-			recordName = "supergoon.com"
-
-		} else {
-			recordName = fmt.Sprintf("%s.supergoon.com", zone)
-
-		}
+		recordName = fmt.Sprintf("%s.supergoon.com", zone)
 		newARecord := &route53.ResourceRecordSet{
 			Name:            &recordName,
 			Type:            aws.String("A"),
@@ -62,7 +56,6 @@ func getAllChanges(zones string, ip string) ([]*route53.Change, error) {
 }
 
 func main() {
-	// Initialize an AWS session
 	newIp := getPublicIP()
 	zones := os.Getenv(zonesEnvName)
 	hostedZoneId := os.Getenv(zoneIdEnvName)
